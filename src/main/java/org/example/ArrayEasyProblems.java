@@ -38,4 +38,61 @@ public class ArrayEasyProblems {
             System.out.println(arr[i]);
         }
     }
+
+    // move zeroes to the end
+    public static int[] moveZeroesToEnd(int [] arr){
+        // strategy 1 (keep an index and keep moving all nonzero element to that index
+        // than fill remaining positions with zeroes.
+
+        // strategy 2
+
+        return arr;
+    }
+
+    // left rotate an array by D position
+    // [1,2,3,4,1,5] rotate by 3 [4, 1, 5, 1, 2, 3]
+    // [3,4,1, 5, 3, -5] k=8 [1,5,3,-5,3,4]
+    public static int[] leftRotateByPosition(int arr[], int d){
+        int k = d % arr.length;
+        if(k == 0){
+            // No change
+            return arr;
+        }
+        // strategy 1 keep on rotating from left by doing the swap
+        for(int i=0; i<k; i++){ // time complexity o(n2) space :0(1) temp variable
+            int temp = arr[i];
+            for(int j=i+1; j< arr.length-1; j++){
+                arr[i] = arr[j];
+            }
+            arr[arr.length-1] = temp;
+        }
+//        return arr;
+
+        // strategy 2 takes o(n) space and O(n) time
+        // put n-k elements in new array
+        // put first k elements in new array from n-k th position
+        int[] rotatedArr = new int[arr.length-1];
+        int l = k;
+        for(int i=0; i<arr.length-k; i++){
+            rotatedArr[i] = arr[l];
+            l++;
+        }
+        l = 0;
+        for(int i = arr.length-k; i< arr.length; i++ ){
+            rotatedArr[i] = arr[l];
+            l++;
+        }
+        return rotatedArr;
+
+        // step 3 (Best approach -> O(n) time o(1) space
+        // [3,4, 1, 5, 3, -5] , d=8 , k=8/6 = 2
+        // to left rotate by d reverse
+        // reverse d elements = [4, 3, 1, 5, 3, -5]
+        // reverse n-d elements = [4, 3, -5, 3, 5, 1]
+        // reverse entire array = [1, 5, 3, -5, 3, 4]
+
+        // first check if k<arr.size
+        // then shift all the element to left for arr.size-k;
+    }
+
 }
