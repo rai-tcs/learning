@@ -27,7 +27,10 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
         int[] inputArr = {2, -1, -1, 3, -3, 4, 0};
+        int[] sortedArr = {0, 1, 2, 3, 4, 4};
+        System.out.println("remove duplicates "+ ArrayEasyProblems.removeDuplicatesFromSortedArr(inputArr));
         System.out.println("3 sum "+ArrayHardProblems.threeSum(inputArr, 0));
+        System.out.println("is array sorted ?" + ArrayEasyProblems.isIntArrSorted(sortedArr, true));
         System.out.println("reverse string " + reverseString("abc"));
         System.out.println("string problems sort by frequency"+ StringProblems.sortCharsByFrequency("tree"));
         System.out.println("is no a palindrome"+(NumberProblems.reverseANumber(1234567) == 7654321));
