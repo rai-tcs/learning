@@ -102,6 +102,35 @@ public class StringMediumProblems {
         return true;
     }
 
+
+    public static boolean isRotation(String s1, String s2) {
+        if (s1 == null || s2 == null) return false;
+        if (s1.length() != s2.length()) return false;
+        if (s1.isEmpty()) return true; // both empty
+
+        String doubled = s1 + s1;
+        return doubled.contains(s2);
+    }
+
+    //    String anagrams are words or strings that contain the same characters with the same frequency, but possibly in a different order.
+    //            ✅ Formal Definition
+    //    Two strings A and B are anagrams if:
+    //
+    //    They have the same length, and
+    //    Every character in A appears the same number of times in B.
+    //
+    //
+    //      Examples
+    //
+    //      "listen" → "silent" → anagrams
+    //      "triangle" → "integral" → anagrams
+    //      "rat" → "tar" → anagrams
+    //      "hello" → "oellh" → anagrams
+    public static boolean isAnagram(String s1, String s2){
+        return false;
+    }
+
+
     public static void main(String[] args){
         System.out.println("--------- string medium problems -----");
 //        Scanner sc = new Scanner(System.in);
