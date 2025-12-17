@@ -53,26 +53,36 @@ public class StringMediumProblems {
     // 500 -> D
     // 1000 -> M
     // strategy -> keep dividing the number with highest roman no less than number
-    public String noToRomanNo(int number){
-        String s = "";
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "I");
-        map.put(5, "V");
-        map.put(10, "X");
-        map.put(50, "L");
-        map.put(100, "C");
-        map.put(500, "D");
-        map.put(1000, "M");
-        List<Integer> keys = new ArrayList<>(map.keySet());
-        keys.sort((a,b)-> Integer.compare(b, a));
-        int n = number;
-        while(n!=0){
 
+    // Convert integer (1..3999) to Roman numeral
+    public static String intToRoman(int num) {
+        if (num <= 0 || num > 3999) {
+            throw new IllegalArgumentException("Input must be in the range 1..3999");
         }
 
+        int[] values = {
+                1000, 900, 500, 400,
+                100,  90,  50,  40,
+                10,    9,   5,   4,  1
+        };
+        String[] symbols = {
+                "M", "CM", "D", "CD",
+                "C", "XC", "L", "XL",
+                "X", "IX", "V", "IV", "I"
+        };
 
-        return s;
+        StringBuilder roman = new StringBuilder();
+
+        for (int i = 0; i < values.length; i++) {
+            while (num >= values[i]) {
+                num -= values[i];
+                roman.append(symbols[i]);
+            }
+        }
+
+        return roman.toString();
     }
+
 
     // check for valid parenthesis string
     // for ex "(()()(()))" -> true  allowed chars -> 0-9, +-/*/ and (,)
