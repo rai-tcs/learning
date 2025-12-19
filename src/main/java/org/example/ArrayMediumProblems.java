@@ -42,6 +42,64 @@ public class ArrayMediumProblems {
         // count the no of zeroes, ones and twos then set in array
     }
 
+    public static int majorityElement(int[] arr){
+        int n = arr.length/2;
+        // strategy 1 count the frequency using hashmap
+        return 0;
+
+
+
+
+
+
+
+
+
+//        // Moore's Voting Algorithm
+//        int count =0;
+//        int candidate = -1;
+//        for(int num: arr){
+//            if(count == 0){
+//                candidate = num;
+//            }
+//            count += (num == candidate) ? 1 : -1;
+//        }
+//        return candidate;
+    }
+
+
+    // If majority is guaranteed to exist (e.g., classic LeetCode problem)
+    public static int majorityElementGuaranteed(int[] nums) {
+        int candidate = 0, count = 0;
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+        return candidate;
+    }
+
+    // If you need to check whether it truly appears > n/2 times
+    public static Integer majorityElementVerified(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+
+        // Phase 1: find candidate
+        int candidate = 0, count = 0;
+        for (int num : nums) {
+            if (count == 0) candidate = num;
+            count += (num == candidate) ? 1 : -1;
+        }
+
+        // Phase 2: verify candidate
+        int freq = 0;
+        for (int num : nums) {
+            if (num == candidate) freq++;
+        }
+        return (freq > nums.length / 2) ? candidate : null;
+    }
+
+
     public static void main(String[] args){
         System.out.println("------ Array Medium Problems -----");
         System.out.println("Sort an array of 0's 1's and 2's");
