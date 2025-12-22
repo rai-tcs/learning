@@ -82,6 +82,7 @@ public class ArrayMediumProblems {
 
     // If you need to check whether it truly appears > n/2 times
     public static Integer majorityElementVerified(int[] nums) {
+        // nums = {7, 0, 0, 1, 7, 7, 2}
         if (nums == null || nums.length == 0) return null;
 
         // Phase 1: find candidate
