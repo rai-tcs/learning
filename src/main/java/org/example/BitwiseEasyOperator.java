@@ -111,4 +111,29 @@ public class BitwiseEasyOperator {
         int ithBit = (digit >> i) & 1;
         return i == ithBit;
     }
+
+    // a= 10 (1010), b =7 (0111) , output = 3
+    // a= 3 (011), b =4(100) output =3
+    public static int countNoOfBitsToBeFlippedToMakeAtoB(int a, int b){
+
+        return 0;
+
+
+
+
+
+
+
+
+//        int xor = a ^ b; // bits which are different will be set to 1
+//        int count =0;
+//        while(xor>0){
+//            count += (xor &1);
+//            xor = xor >>1;
+//        }
+//        return count;
+    }
+    public static void main(String[] args){
+        System.out.println("------ Bitwise Easy Operator -----");
+    }
 }
