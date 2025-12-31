@@ -8,6 +8,9 @@ package org.example;
 //Remove last 1    → n & (n - 1)
 //Is power of 2?   → n > 0 && (n & (n - 1)) == 0
 
+import java.util.ArrayList;
+import java.util.List;
+
 //🛠️ 2. Bitwise Operators in Java
 //
 //        OperatorMeaningExample
@@ -133,6 +136,59 @@ public class BitwiseEasyOperator {
 //        }
 //        return count;
     }
+
+    public static long computePower(int n, int power){
+        // approach 1
+        // recursive approach
+        if(power ==0) return 1;
+        if(power %2 ==0){
+            long halfPower = computePower(n, power/2);
+            return halfPower * halfPower;
+        } else {
+            return n * computePower(n, power -1);
+        }
+
+        // let's do it using bit manipulation
+
+
+
+//        int result =1;
+//        while(power>0){
+//            if((power &1) ==1){
+//                result = result * n;
+//            }
+//            n = n * n;
+//            power = power >>1; // (5-> 0101 , 4-> 0100, 3 -> 0011, 2->0010, 1->0001)
+        // right shift 5 -> 0101 >> by 1 digit ( 0010 (2), 0001 (1))
+//        }
+//        return result;
+    }
+
+
+    public static List<Long> primeFactors(long n) {
+        List<Long> f = new ArrayList<>();
+        if (n == 0) return f;
+        if (n < 0) {
+            f.add(-1L);
+            n = -n;
+        }
+        // remove 2s
+        while (n % 2 == 0) {
+            f.add(2L);
+            n /= 2;
+        }
+        // odd factors
+        for (long i = 3; i * i <= n; i += 2) {
+            while (n % i == 0) {
+                f.add(i);
+                n /= i;
+            }
+        }
+        if (n > 1) f.add(n);
+        return f;
+    }
+
+
     public static void main(String[] args){
         System.out.println("------ Bitwise Easy Operator -----");
     }
