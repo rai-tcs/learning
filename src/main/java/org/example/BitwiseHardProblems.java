@@ -33,7 +33,8 @@ public class BitwiseHardProblems {
         if (R < 2) return 0;
         if (L < 2) L = 2;
 
-        int size = R + 1;
+        int size = R + 1;// 31 -> Binary -> 011111
+        // 011111 >> (right shift by 5 digit) -> 00001 (1)
         int[] bitset = new int[(size >> 5) + 1]; // each int holds 32 bits
 
         // Sieve of Eratosthenes using bitwise operations
